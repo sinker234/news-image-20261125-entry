@@ -65,7 +65,7 @@ MEDIUM = [
     },
     {
         "kicker": "PACIFIC  •  TREATY",
-        "headline": "SOLOMONS DROPS CHINA PACT FOR AUSTRALIA",
+        "headline": "SOLOMONS SIGNS AUSTRALIA SECURITY PACT",
         "body": ("Australia and Solomon Islands signed a treaty in Canberra "
                  "making Canberra the islands' primary security partner, "
                  "with no foreign military base on its soil. Australia "
@@ -89,9 +89,10 @@ SMALL = [
     },
     {
         "kicker": "TRADE",
-        "headline": "US SET TO UNVEIL SWEEPING NEW TARIFFS",
-        "body": ("The Trump administration is poised to release Section 301 "
-                 "findings on 16 partners, with new duties expected."),
+        "headline": "US PROPOSES NEW TARIFFS ON 14 PARTNERS",
+        "body": ("The Trump administration proposes Section 301 duties "
+                 "on 14 partners after probing 16; Mexico and Norway "
+                 "are spared."),
     },
 ]
 
