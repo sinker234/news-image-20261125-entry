@@ -76,10 +76,9 @@ MEDIUM = [
 SMALL = [
     {
         "kicker": "GAZA",
-        "headline": "ISRAEL LAUNCHES FIRST GROUND PUSH SINCE CEASEFIRE",
-        "body": ("Israeli tanks push into central Gaza near Nuseirat; three "
-                 "killed, hospitals say. Health ministry counts seven dead "
-                 "in 24 hours."),
+        "headline": "ISRAELI STRIKES KILL SEVEN ACROSS GAZA",
+        "body": ("Seven Palestinians killed in Israeli strikes across Gaza "
+                 "on Tuesday; 1,679 dead since the October 2025 ceasefire."),
     },
     {
         "kicker": "UNITED STATES",
@@ -131,7 +130,7 @@ TICKER = [
     "Tang Hongbo's third trip to Tiangong",
     "Solomons: A$740m over a decade",
     "Coalition hits Saada and Amran",
-    "Hera: a year studying Dimorphos",
+    "Hera: six months studying Dimorphos",
     "Copper, tin prices fall sharply",
     "Shenzhou-24: 90 experiments planned",
 ]
