@@ -57,11 +57,11 @@ HERO = {
 MEDIUM = [
     {
         "kicker": "YEMEN  •  RED SEA",
-        "headline": "HOUTHIS HIT SAUDI REFINERY, THREATEN JEDDAH",
-        "body": ("Yemen's Houthis say they attacked the Ras Tanura refinery "
-                 "and Riyadh's financial district, then threatened Jeddah "
-                 "and all Saudi Red Sea ports if Hodeidah is hit. The "
-                 "Saudi-led coalition struck back at Hodeidah."),
+        "headline": "HOUTHIS CLAIM STRIKES ON SAUDI PORTS",
+        "body": ("Yemen's Houthis claim strikes on Jeddah and Jazan ports, "
+                 "saying a projectile hit Jazan, and say they hit the Ras "
+                 "Tanura refinery. The Saudi-led coalition struck back "
+                 "at Hodeidah."),
     },
     {
         "kicker": "PACIFIC  •  TREATY",
@@ -99,7 +99,7 @@ SMALL = [
 # Each brief: kicker + one sentence, kept short enough to wrap to 2 lines
 # at 12pt in a 462px column (verified by the layout assert below).
 BRIEFS = [
-    ("SHATI, GAZA", "Israeli strike on a Shati camp flat kills a family of four; six more hurt, hospital says."),
+    ("SHATI, GAZA", "Israeli strike on a Shati camp flat kills a family of four; 12 more hurt, civil defence says."),
     ("GAZA TOLL", "Gaza's death toll reaches 74,746; 1,679 have been killed since the October 2025 ceasefire."),
     ("LEBANON", "Israeli shelling hits al-Mansouri and Majdal Zoun in southern Lebanon, state news agency says."),
     ("HORMUZ", "Two oil tankers catch fire at dawn in the Strait of Hormuz after hitting mines, Iran's IRGC says."),
@@ -111,20 +111,20 @@ BRIEFS = [
     ("LOSSES", "Russia loses 2,091 soldiers and 15 artillery systems in a day, Kyiv's General Staff says."),
     ("SAHEL", "African insurgents take the war to the skies with cheap off-the-shelf drones, Reuters finds."),
     ("SYDNEY", "Australian inflation runs hot at 3.8%, piling pressure on the Reserve Bank to raise rates."),
-    ("NVIDIA", "Shares slide 7% as the US attorney general dodges questions on the Nvidia investigation."),
+    ("KYIV", "Russian ballistic missiles hit a Kyiv shopping centre late Wednesday; four hurt, two seriously."),
     ("BEIJING", "China's Politburo shrinks as the graft crackdown spreads to a fourth member since 2025."),
     ("LONDON", "UK sent a sex-offender refugee to an African country in an undisclosed resettlement deal."),
     ("LOS ANGELES", "Thomas Markle indicted in the US for possessing child sex abuse images."),
     ("TAIPEI", "A China-linked network uses AI fakes to smear Taiwan election candidates, BBC Verify finds."),
     ("LONDON", "Nuclear test veterans will get the 'full truth' as Britain orders an independent panel."),
-    ("SPACE", "ESA's Hera reaches the asteroid NASA smashed in 2022; first close-up images due today."),
+    ("SPACE", "ESA's Hera unveils first close-up images of Dimorphos; DART left a stadium-size crater."),
     ("RIYADH", "Saudi defences have intercepted 209 Houthi aerial threats since September 24, embassy says."),
     ("HUAWEI", "Huawei calls its US conviction 'without legal or factual merit' and vows legal action."),
-    ("WASHINGTON", "US core PCE inflation data is due today, ahead of the Thanksgiving holiday."),
+    ("WASHINGTON", "US core PCE inflation runs hot at 3.3%, above forecasts, ahead of the Thanksgiving holiday."),
     ("CRYPTO", "Bitcoin falls 1% to $59,257 while ether slides 1.1% to $1,660."),
     ("OIL", "Brent crude opens 0.5% lower at $90.97 after a choppy session on Tuesday."),
-    ("SEOUL", "Korean shares plunge 5.3% and Taiwan 5.1% as chip markets bear the brunt."),
-    ("TOKYO", "Japan's Nikkei falls 2.9% while S&P 500 futures edge 0.3% lower."),
+    ("SEOUL", "Korean shares plunge 6.2% and Taiwan 4.8% as chip markets bear the brunt."),
+    ("TOKYO", "Japan's Nikkei falls 2.8% while S&P 500 futures edge lower."),
 ]
 
 TICKER = [
