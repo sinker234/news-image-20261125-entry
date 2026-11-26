@@ -101,7 +101,7 @@ SMALL = [
 BRIEFS = [
     ("SHATI, GAZA", "Israeli strike on a Shati camp flat kills a family of four; 12 more hurt, civil defence says."),
     ("GAZA TOLL", "Gaza's death toll reaches 74,746; 1,679 have been killed since the October 2025 ceasefire."),
-    ("LEBANON", "Israeli shelling hits al-Mansouri and Majdal Zoun in southern Lebanon, state news agency says."),
+    ("GDP", "US economy grew 4.3% in Q3, fastest in three years, revised up from 3.4%, BEA says."),
     ("HORMUZ", "Two oil tankers catch fire at dawn in the Strait of Hormuz after hitting mines, Iran's IRGC says."),
     ("RAS TANURA", "Saudi defences destroy four drones over the Ras Tanura oil refinery, the coalition says."),
     ("MARKETS", "Asian stocks tumble as fresh US tariff threats hit sentiment and a tech rally fizzles."),
@@ -110,7 +110,7 @@ BRIEFS = [
     ("KYIV OBLAST", "Russian attack kills one and damages commercial infrastructure in Kyiv Oblast."),
     ("LOSSES", "Russia loses 2,091 soldiers and 15 artillery systems in a day, Kyiv's General Staff says."),
     ("SAHEL", "African insurgents take the war to the skies with cheap off-the-shelf drones, Reuters finds."),
-    ("SYDNEY", "Australian inflation runs hot at 3.8%, piling pressure on the Reserve Bank to raise rates."),
+    ("SYDNEY", "Australian core inflation runs hot at 3.8% (headline 4.9%), piling pressure on the Reserve Bank to raise rates."),
     ("KYIV", "Russian ballistic missiles hit a Kyiv shopping centre late Wednesday; four hurt, two seriously."),
     ("BEIJING", "China's Politburo shrinks as the graft crackdown spreads to a fourth member since 2025."),
     ("LONDON", "UK sent a sex-offender refugee to an African country in an undisclosed resettlement deal."),
