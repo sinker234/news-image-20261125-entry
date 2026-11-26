@@ -1,9 +1,14 @@
-"""Draw the 25 November 2026 one-page newspaper for make.fun, round 7.
+"""Draw the 25 November 2026 one-page newspaper for make.fun, round 8.
 
 Renders a 1024x1024 broadsheet front page with 50 verified stories:
 1 hero + 2 medium + 3 small + 36 IN BRIEF + 8 ticker items.
-The density push: briefs move to three columns at 11pt so 10 new
-stories fit without squeezing the hero, medium or small boxes.
+Round 8 (final round before the 2026-11-27T00:00Z close) applies the
+top-entry lessons from the live dev board: a six-number stat strip
+under the masthead, source/verdict tags on the hero/medium/small
+kickers, and three strong late-25-Nov stories (UK energy cap, Cairo
+tanker fire, West Java mine) replacing the three weakest briefs
+(MARKETS / TOKYO / CRYPTO). All 50 r7 stories were re-verified this
+round; no genuine factual error was found in any of them.
 Deterministic: no network, no clock, no randomness -- every run
 writes the same bytes. Run: python3 draw.py  (writes entry.png)
 """
@@ -47,7 +52,7 @@ SANS_B = lambda s: _load("DejaVuSans-Bold.ttf", s)
 # the Shati family already covered by the SHATI brief -- no double-count.
 
 HERO = {
-    "kicker": "SPACE  •  TOP STORY",
+    "kicker": "SPACE  •  TOP STORY  •  CONFIRMED",
     "headline": "PAKISTAN'S FIRST ASTRONAUT REACHES ORBIT",
     "body": ("China's Shenzhou-24 blasted off from Jiuquan at 00:18 UTC with "
              "Tang Hongbo, Wu Yi and Pakistan's Muhammad Zeeshan Ali - the "
@@ -58,7 +63,7 @@ HERO = {
 
 MEDIUM = [
     {
-        "kicker": "YEMEN  •  RED SEA",
+        "kicker": "YEMEN  •  RED SEA  •  CLAIM",
         "headline": "HOUTHIS CLAIM STRIKES ON SAUDI PORTS",
         "body": ("Yemen's Houthis claim strikes on Jeddah and Jazan ports, "
                  "saying a projectile hit Jazan, and say they hit the Ras "
@@ -66,7 +71,7 @@ MEDIUM = [
                  "at Hodeidah."),
     },
     {
-        "kicker": "PACIFIC  •  TREATY",
+        "kicker": "PACIFIC  •  TREATY  •  OFFICIAL",
         "headline": "SOLOMONS SIGNS AUSTRALIA SECURITY PACT",
         "body": ("Australia and Solomon Islands signed a treaty in Canberra "
                  "making Canberra the islands' primary security partner, "
@@ -77,20 +82,20 @@ MEDIUM = [
 
 SMALL = [
     {
-        "kicker": "GAZA",
+        "kicker": "GAZA  •  CONFIRMED",
         "headline": "ISRAELI STRIKES KILL SEVEN ACROSS GAZA",
         "body": ("Seven Palestinians killed in Israeli strikes across Gaza "
                  "on Tuesday; 1,679 dead since the October 2025 ceasefire."),
     },
     {
-        "kicker": "UNITED STATES",
+        "kicker": "UNITED STATES  •  CONFIRMED",
         "headline": "ABREGO GARCIA LEAVES US FOR SPAIN",
         "body": ("The Salvadoran migrant wrongfully deported to El Salvador "
                  "leaves the US voluntarily, ending a 20-month legal "
                  "fight."),
     },
     {
-        "kicker": "TRADE",
+        "kicker": "TRADE  •  CONFIRMED",
         "headline": "US PROPOSES NEW TARIFFS ON 14 PARTNERS",
         "body": ("The Trump administration proposes Section 301 duties "
                  "on 14 partners after probing 16; Mexico and Norway "
@@ -102,13 +107,17 @@ SMALL = [
 # at 11pt in a 304px column (enforced by the layout assert below).
 # Items 1-26 are the r6 set, re-verified this round and tightened;
 # items 27-36 are the r7 density additions, each web-verified.
+# r8: MARKETS -> UK CAP, CRYPTO -> JAVA MINE, TOKYO -> CAIRO
+# (three strong late-25-Nov stories; the dropped items were the
+# weakest briefs: a vague markets line, a stale S&P-futures clause,
+# and a price snapshot). Count stays 50.
 BRIEFS = [
     ("SHATI", "Israeli strike on a camp flat kills a family of four; 12 hurt."),
     ("GAZA TOLL", "Gaza's toll reaches 74,746; 1,679 killed since the ceasefire."),
     ("GDP", "US economy grew 4.3% in Q3, fastest in three years, BEA says."),
     ("HORMUZ", "Two oil tankers catch fire at dawn after hitting mines, IRGC says."),
     ("RAS TANURA", "Saudi defences destroy four drones over the refinery, coalition says."),
-    ("MARKETS", "Asian stocks tumble as US tariff threats hit sentiment and tech fizzles."),
+    ("UK CAP", "Ofgem lifts the energy price cap 26% to £2,166 from January."),
     ("WASHINGTON", "Trump shelves Russia business deals to end the war, FT reports."),
     ("KYIV", "Zelenskyy says a voluntary withdrawal from Donbas would be defeat."),
     ("KYIV OBLAST", "Russian attack kills one and damages shops in Bila Tserkva."),
@@ -120,15 +129,15 @@ BRIEFS = [
     ("LONDON", "UK secretly sent a sex-offender refugee to Eswatini, BBC finds."),
     ("LOS ANGELES", "Thomas Markle indicted over child sex abuse images."),
     ("TAIPEI", "A China-linked network uses AI fakes to smear Taiwan candidates, BBC finds."),
-    ("VETERANS", "Nuclear test veterans promised the 'full truth' as Britain orders a panel."),
+    ("VETERANS", "Britain orders a nuclear-test panel to give veterans the 'full truth'."),
     ("SPACE", "Hera unveils first images of Dimorphos; DART left a stadium-size crater."),
     ("RIYADH", "Saudi defences intercepted 209 Houthi aerial threats since September 24."),
-    ("HUAWEI", "Huawei calls its US conviction 'without legal or factual merit'."),
+    ("HUAWEI", "'Without legal or factual merit': Huawei rejects US conviction."),
     ("PCE", "US core inflation runs hot at 3.3%, above forecasts, before Thanksgiving."),
-    ("CRYPTO", "Bitcoin falls 1% to $59,257 while ether slides 1.1% to $1,660."),
+    ("JAVA MINE", "Flooded gold mine in West Java kills nine; 17 miners still trapped."),
     ("OIL", "Brent crude opens 0.5% lower at $90.97 after a choppy session on Tuesday."),
     ("SEOUL", "Korean shares plunge 6.2% and Taiwan 4.8% as chip markets bear the brunt."),
-    ("TOKYO", "Japan's Nikkei falls 2.8% while S&P 500 futures edge lower."),
+    ("CAIRO", "Fuel tanker fire on the Ring Road kills 31; 21 hurt, ministry says."),
     ("UCL", "Liverpool win 3-0 at Brugge and Barça 4-1; PSG held 2-2 by Roma."),
     ("TURKEYS", "Trump pardons Freedom and Feathers; one bolts for the bushes."),
     ("CAS", "Senegal regain the AFCON title as court overturns Morocco's 3-0 award."),
@@ -139,6 +148,18 @@ BRIEFS = [
     ("CONGO", "WHO keeps Ebola a global emergency as cases near 11,000 in the east."),
     ("SERANG", "Candy factory fire toll reaches 26; eight workers still missing."),
     ("SANDRINGHAM", "Two charged over the Anmer Hall break-in; clock and cufflinks taken."),
+]
+
+# Stat strip: six big numbers, each a story already on the page (the
+# three new r8 stories lead). The strip is a visual element only --
+# it adds no new stories, so the count stays 50.
+STATS = [
+    ("+26%", "UK ENERGY CAP, JAN"),
+    ("31", "KILLED, CAIRO FIRE"),
+    ("9", "DEAD, 17 TRAPPED, JAVA MINE"),
+    ("90", "SHENZHOU-24 EXPERIMENTS"),
+    ("-6.2%", "KOSPI, SEOUL"),
+    ("74,746", "GAZA DEATH TOLL"),
 ]
 
 # Ticker: two rows of four short items at 11pt bold (asserted to one line).
@@ -255,14 +276,30 @@ def render(path):
     # ---- masthead
     d.text((x0, y), "THE WORLD IN ONE PAGE", font=SERIF_B(40), fill=INK)
     paint_globe(d, x1 - 42, y + 30, 34)
-    y += 52
+    y += 50
     d.text((x0, y), "WEDNESDAY 25 NOVEMBER 2026  •  50 VERIFIED STORIES",
            font=SANS_B(17), fill=RED)
-    y += 26
+    y += 24
     rule(d, x0, x1, y, weight=3)
-    y += 6
+    y += 5
     rule(d, x0, x1, y, weight=1)
-    y += 8  # y = 110
+    y += 7  # y = 100
+
+    # ---- stat strip: six big numbers, one per story already on the page
+    sty, sth = y, 40
+    d.rectangle([x0, sty, x1, sty + sth], outline=INK, width=1)
+    cell_w = CW // 6
+    for i, (num, label) in enumerate(STATS):
+        cx = x0 + i * cell_w
+        if i:
+            d.line([(cx, sty + 6), (cx, sty + sth - 6)], fill=GREY, width=1)
+        nlines = wrap_text(num, SANS_B(20), cell_w - 12, d)
+        assert len(nlines) == 1, nlines
+        d.text((cx + 8, sty + 5), num, font=SANS_B(20), fill=RED)
+        llines = wrap_text(label, SANS(9), cell_w - 16, d)
+        assert len(llines) == 1, llines
+        d.text((cx + 8, sty + 27), label, font=SANS(9), fill=GREY)
+    y = sty + sth + 6  # 146
 
     # ---- hero (full width)
     hy, hh = y, 172
@@ -277,7 +314,7 @@ def render(path):
     paint_rocket(d, x1 - 200, hy + 14, 0.8)
     d.text((x1 - 208, hy + hh - 24), "SHENZHOU-24  •  JIUQUAN",
            font=SANS_B(11), fill=GREY)
-    y = hy + hh + 8  # 290
+    y = hy + hh + 6  # 324
 
     # ---- medium row: two boxes
     my, mh = y, 146
@@ -293,10 +330,10 @@ def render(path):
         bl = wrap_text(story["body"], SANS(13), mw - 24, d)
         assert len(bl) <= 4, bl
         paint_lines(d, bx + 12, yy + 4, bl, SANS(13), step=17)
-    y = my + mh + 8  # 444
+    y = my + mh + 6  # 476
 
     # ---- small row: three boxes
-    sy, sh = y, 136
+    sy, sh = y, 132
     sw = (CW - 2 * 16) // 3
     for i, story in enumerate(SMALL):
         bx = x0 + i * (sw + 16)
@@ -308,20 +345,20 @@ def render(path):
         yy = paint_lines(d, bx + 10, sy + 25, hl, SANS_B(16), step=19)
         bl = wrap_text(story["body"], SANS(12), sw - 20, d)
         assert len(bl) <= 3, bl
-        bottom = paint_lines(d, bx + 10, yy + 3, bl, SANS(12), step=15)
+        bottom = paint_lines(d, bx + 10, yy + 3, bl, SANS(12), step=14)
         assert bottom <= sy + sh - 4, (story["kicker"], bottom, sy + sh)
-    y = sy + sh + 8  # 580
+    y = sy + sh + 6  # 614
 
     # ---- IN BRIEF header
     d.text((x0, y), "IN BRIEF", font=SANS_B(15), fill=RED)
     d.text((x1 - 190, y), "36 MORE STORIES", font=SANS_B(13), fill=GREY)
-    y += 22
+    y += 20
     rule(d, x0, x1, y, weight=1)
-    y += 4  # 606
+    y += 4  # 638
 
-    # ---- briefs: three columns x 12, fixed 28px rows, 11pt text
+    # ---- briefs: three columns x 12, fixed 26px rows, 11pt text
     col_w = (CW - 2 * 16) // 3  # 312
-    row_h = 28
+    row_h = 26
     for idx, (kicker, text) in enumerate(BRIEFS):
         col = idx // 12
         row = idx % 12
@@ -344,19 +381,19 @@ def render(path):
             # 12px intra-brief leading vs 28px rows: the second line
             # groups visibly with its own kicker, not the next brief.
             d.text((bx, by + 12), lines[1], font=SANS(11), fill=INK)
-    y = y + 12 * row_h + 6  # 948
+    y = y + 12 * row_h + 6  # 956
 
     # ---- ticker strip: two lines of four items
-    ty, th = y, 52
+    ty, th = y, 48
     d.rectangle([x0, ty, x1, ty + th], fill=TICKER_BG)
     for row in range(2):
         items = TICKER[row * 4:(row + 1) * 4]
         line = "   •   ".join(items)
         lines = wrap_text(line, SANS_B(11), CW - 24, d)
         assert len(lines) == 1, lines
-        d.text((x0 + 12, ty + 9 + row * 22), lines[0],
+        d.text((x0 + 12, ty + 8 + row * 20), lines[0],
                font=SANS_B(11), fill=TICKER_FG)
-    y = ty + th  # 1000
+    y = ty + th  # 1004
 
     assert y <= 1016, y
     img.save(path, format="PNG", optimize=True)
